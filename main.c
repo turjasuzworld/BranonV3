@@ -110,7 +110,7 @@ void main(void)
         _delay_cycles(SystemFreq);
         _delay_cycles(SystemFreq);
 
-        SendDataToESP("AT+CIPSEND=117\r\n");
+        SendDataToESP("AT+CIPSEND=354\r\n");
         _delay_cycles(SystemFreq);
 //        _delay_cycles(SystemFreq);
 //        _delay_cycles(SystemFreq);
@@ -124,7 +124,7 @@ void main(void)
             res = strstr((const char *)_EspBuffer,">");
         } while (res == NULL);
 
-        SendDataToESP("GET http://www.turjasuzworld.in/Branon/api/srv2.php?dvid=D1253 HTTP/1.1\r\nHost: Turjasu\r\nConnection: close\r\n\r\n");
+        SendDataToESP("GET http://www.turjasuzworld.in/Branon/api/srv.php?dvid=D1253&oprt=__WIFI23&temp=17&dvip=182.065.004.125&dvfw=00.03.00.00&dvnc=31&L1=1&L1T=0&L2=1&L2T=0&L3=1&L3T=0&L4=1&L4T=0&L5=1&L5T=0&L6=1&L6T=0&L7=1&L7T=0&L8=1&L8T=0&VL1=1&VL1T=10&VL1P=25&VL2=1&VL2T=12&VL2P=50&RTC=18-56-26-04-02-2019&RTCSet=0&FR=0 HTTP/1.1\r\nHost: Turjasu\r\nConnection: close\r\n\r\n");
 /*
         res = NULL;
         do {
