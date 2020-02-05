@@ -1,7 +1,6 @@
 #include <ESP8266_TW/TW_ESP8266.h>
 #include <msp430.h>				
 
-
 /**
  * blink.c
  *
@@ -27,13 +26,15 @@ void main(void)
 
 
 //	P1DIR |= 0x01;					// configure P1.0 as output
-	P9DIR |= ESP_RST;
-	P9OUT &= ~ESP_RST;
+	P9DIR |= _ESP_RST;
+	P9OUT &= ~_ESP_RST;
+	_delay_cycles(SystemFreq);
+	P9OUT |=  _ESP_RST;
 	P8DIR |= WIFI_CONNECTED_LED;
 
 	SetClockDCO(12);
 	Configure_UCA3_UART(115200.00, 2);
-	SendDataToUCA3("__USB LOG Configuration Complete, Starting Device__\r");
+	SendDataToUCA3("__USB LOG Configuration Complete, Starting Device__\r\n");
 	ConfigureEspUART(115200.0, 1);
 
 
@@ -59,7 +60,7 @@ void main(void)
 
 
         _delay_cycles(SystemFreq);
-        SendDataToESP("AT+CWMODE=1\r\n");
+        SendDataToESP("AT+CWMODE_CUR=1\r\n");
         _delay_cycles(SystemFreq);
         SendDataToESP("AT+CWLAP\r\n");
         _delay_cycles(SystemFreq);
@@ -71,7 +72,7 @@ void main(void)
         _delay_cycles(SystemFreq);
         _delay_cycles(SystemFreq);
         _delay_cycles(SystemFreq);
-        SendDataToESP("AT+CWJAP_CUR=\"TurjasuzLab\",\"TM#4C1294NCPDTI3\"\r\n");
+        SendDataToESP("AT+CWJAP_CUR=\"TurjasuzworldAP9\",\"CC#2650R2\"\r\n");
         _delay_cycles(SystemFreq);
        // res = strstr((const char *)_EspBuffer,"WIFI GOT IP");
         do {
@@ -103,12 +104,16 @@ void main(void)
   {
 
         SendDataToESP("AT+CIPSTART=\"TCP\",\"turjasuzworld.in\",80\r\n");
-        _delay_cycles(SystemFreq);
-        _delay_cycles(SystemFreq);
-        _delay_cycles(SystemFreq);
-        _delay_cycles(SystemFreq);
-        _delay_cycles(SystemFreq);
-        _delay_cycles(SystemFreq);
+        res = NULL;
+         do {
+             //_delay_cycles(SystemFreq);
+             res = strstr((const char *)_EspBuffer,"CONNECT\r\n\r\nOK");
+         } while (res == NULL);
+
+
+
+
+         _delay_cycles(SystemFreq/2);
 
         SendDataToESP("AT+CIPSEND=354\r\n");
         _delay_cycles(SystemFreq);
@@ -124,7 +129,7 @@ void main(void)
             res = strstr((const char *)_EspBuffer,">");
         } while (res == NULL);
 
-        SendDataToESP("GET http://www.turjasuzworld.in/Branon/api/srv.php?dvid=D1253&oprt=__WIFI23&temp=17&dvip=182.065.004.125&dvfw=00.03.00.00&dvnc=31&L1=1&L1T=0&L2=1&L2T=0&L3=1&L3T=0&L4=1&L4T=0&L5=1&L5T=0&L6=1&L6T=0&L7=1&L7T=0&L8=1&L8T=0&VL1=1&VL1T=10&VL1P=25&VL2=1&VL2T=12&VL2P=50&RTC=18-56-26-04-02-2019&RTCSet=0&FR=0 HTTP/1.1\r\nHost: Turjasu\r\nConnection: close\r\n\r\n");
+        SendDataToESP("GET http://www.turjasuzworld.in/Branon/api/srv.php?dvid=D1253&oprt=__WIFI__&temp=87&dvip=182.065.004.125&dvfw=00.03.00.00&dvnc=31&L1=1&L1T=0&L2=1&L2T=0&L3=1&L3T=0&L4=1&L4T=0&L5=1&L5T=0&L6=1&L6T=0&L7=1&L7T=0&L8=1&L8T=0&VL1=1&VL1T=10&VL1P=25&VL2=1&VL2T=12&VL2P=50&RTC=18-56-26-04-02-2019&RTCSet=0&FR=0 HTTP/1.1\r\nHost: Turjasu\r\nConnection: close\r\n\r\n");
 /*
         res = NULL;
         do {
@@ -132,7 +137,7 @@ void main(void)
             res = strstr((const char *)_EspBuffer,"SEND OK");
         } while (res == NULL);
 */
-
+        _delay_cycles(SystemFreq);
 
         SendDataToESP("AT+CIPCLOSE\r\n");
 

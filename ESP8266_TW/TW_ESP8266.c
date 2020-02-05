@@ -22,16 +22,16 @@ volatile                          int                     _EspBuffCnt = 0;
 
 esp8266StateMachines resetESP8266(void)
 {
-    P9OUT   |=  ESP_RST;
+    P9OUT   |=  _ESP_RST;
     _delay_cycles(SystemFreq);
-    P9OUT   &= ~ESP_RST;
+    P9OUT   &= ~_ESP_RST;
     _delay_cycles(SystemFreq/2);
     return _E8266_RESET_DONE;
 }
 
 esp8266StateMachines moduleInitDiag(void)
 {
-        P9OUT   &= ~ESP_RST;
+        P9OUT   &= ~_ESP_RST;
 }
 
 /*

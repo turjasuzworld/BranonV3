@@ -25,11 +25,9 @@ extern      volatile            unsigned char                                   
  */
 #define                 SystemFreq                      12000000.00000 // This MUST BE DEFINED PROPERLY FOR COMMUNICATION
 
-#define                 _ESP_PORT_DIR                    P3DIR
-#define                 _ESP_PORT_OUT                    P3OUT
-#define                 _ESP_ON_OFF_PIN                  BIT6
 
-#define                 ESP_RST                         BIT6
+#define                 _ESP_PORT_OUT                    P3OUT
+#define                 _ESP_RST                         BIT6
 #define                 WIFI_CONNECTED_LED              BIT7
 // USCIA0 comm. bits
 #define                 _ESP_PORT_DIR                 P3DIR
