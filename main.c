@@ -29,6 +29,8 @@ void main(void)
 //	P1DIR |= 0x01;					// configure P1.0 as output
 	P9DIR |= ESP_RST;
 	P9OUT &= ~ESP_RST;
+	_delay_cycles(SystemFreq);
+	P9OUT |= ESP_RST;
 	P8DIR |= WIFI_CONNECTED_LED;
 
 	SetClockDCO(12);
@@ -71,7 +73,7 @@ void main(void)
         _delay_cycles(SystemFreq);
         _delay_cycles(SystemFreq);
         _delay_cycles(SystemFreq);
-        SendDataToESP("AT+CWJAP_CUR=\"TurjasuzLab\",\"TM#4C1294NCPDTI3\"\r\n");
+        SendDataToESP("AT+CWJAP_CUR=\"TurjasuzworldAP9\",\"CC#2650R2\"\r\n");
         _delay_cycles(SystemFreq);
        // res = strstr((const char *)_EspBuffer,"WIFI GOT IP");
         do {

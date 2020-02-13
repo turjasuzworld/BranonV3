@@ -1,7 +1,7 @@
 ******************************************************************************
                   MSP430 Linker PC v18.12.3                    
 ******************************************************************************
->> Linked Sat Feb  1 22:17:54 2020
+>> Linked Thu Feb  6 12:17:31 2020
 
 OUTPUT FILE NAME:   <BRANONFW_00_00_03_00.out>
 ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00005d2e
@@ -19,7 +19,7 @@ MEMORY CONFIGURATION
   INFOB                 00001900   00000080  00000000  00000080  RWIX
   INFOA                 00001980   00000080  00000000  00000080  RWIX
   RAM                   00001c00   00004000  00000ac8  00003538  RWIX
-  FLASH                 00005c00   0000a380  0000035c  0000a024  RWIX
+  FLASH                 00005c00   0000a380  0000035a  0000a026  RWIX
   INT00                 0000ff80   00000002  00000000  00000002  RWIX
   INT01                 0000ff82   00000002  00000000  00000002  RWIX
   INT02                 0000ff84   00000002  00000000  00000002  RWIX
@@ -84,7 +84,7 @@ MEMORY CONFIGURATION
   INT61                 0000fffa   00000002  00000002  00000000  RWIX
   INT62                 0000fffc   00000002  00000002  00000000  RWIX
   RESET                 0000fffe   00000002  00000002  00000000  RWIX
-  FLASH2                00010000   00015c00  00000be6  0001501a  RWIX
+  FLASH2                00010000   00015c00  00000c02  00014ffe  RWIX
 
 
 SECTION ALLOCATION MAP
@@ -117,19 +117,19 @@ section   page    origin      length       input sections
                   00005d4a    00000010     TW_ADC12.obj (.text:_isr:ADC12ISR)
                   00005d5a    00000008     rts430x_lc_rd_eabi.lib : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
 
-.cinit     0    00005f32    0000002a     
-                  00005f32    0000000c     (__TI_handler_table)
-                  00005f3e    00000008     (.cinit..data.load) [load image, compression = lzss]
-                  00005f46    00000006     (.cinit..bss.load) [load image, compression = zero_init]
-                  00005f4c    00000010     (__TI_cinit_table)
+.cinit     0    00005f30    0000002a     
+                  00005f30    0000000c     (__TI_handler_table)
+                  00005f3c    00000008     (.cinit..data.load) [load image, compression = lzss]
+                  00005f44    00000006     (.cinit..bss.load) [load image, compression = zero_init]
+                  00005f4a    00000010     (__TI_cinit_table)
 
 .binit     0    00005c00    00000000     
 
 .init_array 
 *          0    00005c00    00000000     UNINITIALIZED
 
-.const     0    00005d62    000001d0     
-                  00005d62    000001d0     main.obj (.const:.string)
+.const     0    00005d62    000001ce     
+                  00005d62    000001ce     main.obj (.const:.string)
 
 RTC        0    0000ffd2    00000002     
                   0000ffd2    00000002     rts430x_lc_rd_eabi.lib : int41.asm.obj (.int41)
@@ -206,41 +206,41 @@ SYSNMI     0    0000fffc    00000002
 .reset     0    0000fffe    00000002     
                   0000fffe    00000002     rts430x_lc_rd_eabi.lib : boot.c.obj (.reset)
 
-.text      0    00010000    00000be6     
-                  00010000    000003fc     main.obj (.text:main)
-                  000103fc    00000132     rts430x_lc_rd_eabi.lib : fs_add.asm.obj (.text)
-                  0001052e    00000114     TW_ESP8266.obj (.text:ConfigureEspUART)
-                  00010642    00000114     TW_GenericUART_UCA3.obj (.text:Configure_UCA3_UART)
-                  00010756    000000b8     rts430x_lc_rd_eabi.lib : fs_mpy.asm.obj (.text)
-                  0001080e    00000090                            : fs_div.asm.obj (.text)
-                  0001089e    00000076                            : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
-                  00010914    00000068                            : fs_toi.asm.obj (.text)
-                  0001097c    00000060     TW_MSP430x5xx_CLOCKSET.obj (.text:SetClockDCO)
-                  000109dc    00000054     rts430x_lc_rd_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit_hold_wdt:__TI_auto_init_nobinit_nopinit_hold_wdt)
-                  00010a30    0000004e     TW_MSP430x5xx_CLOCKSET.obj (.text:SetVcoreUp)
-                  00010a7e    00000046     rts430x_lc_rd_eabi.lib : fs_tou.asm.obj (.text)
-                  00010ac4    0000003c                            : strstr.c.obj (.text:strstr)
-                  00010b00    00000028     TW_ESP8266.obj (.text:SendDataToESP)
-                  00010b28    00000024     rts430x_lc_rd_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init)
-                  00010b4c    00000024                            : fs_utof.asm.obj (.text)
-                  00010b70    00000020     TW_ESP8266.obj (.text:ClrEspBuff)
-                  00010b90    00000018     TW_GenericUART_UCA3.obj (.text:SendDataToUCA3)
-                  00010ba8    00000014     rts430x_lc_rd_eabi.lib : memcpy.c.obj (.text:memcpy)
-                  00010bbc    00000012                            : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
-                  00010bce    0000000c     TW_GenericUART_UCA3.obj (.text:SendCharToUCA3)
-                  00010bda    00000006     rts430x_lc_rd_eabi.lib : exit.c.obj (.text:abort)
-                  00010be0    00000004                            : pre_init.c.obj (.text:_system_pre_init)
-                  00010be4    00000002                            : startup.c.obj (.text:_system_post_cinit)
+.text      0    00010000    00000c02     
+                  00010000    00000418     main.obj (.text:main)
+                  00010418    00000132     rts430x_lc_rd_eabi.lib : fs_add.asm.obj (.text)
+                  0001054a    00000114     TW_ESP8266.obj (.text:ConfigureEspUART)
+                  0001065e    00000114     TW_GenericUART_UCA3.obj (.text:Configure_UCA3_UART)
+                  00010772    000000b8     rts430x_lc_rd_eabi.lib : fs_mpy.asm.obj (.text)
+                  0001082a    00000090                            : fs_div.asm.obj (.text)
+                  000108ba    00000076                            : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00010930    00000068                            : fs_toi.asm.obj (.text)
+                  00010998    00000060     TW_MSP430x5xx_CLOCKSET.obj (.text:SetClockDCO)
+                  000109f8    00000054     rts430x_lc_rd_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit_hold_wdt:__TI_auto_init_nobinit_nopinit_hold_wdt)
+                  00010a4c    0000004e     TW_MSP430x5xx_CLOCKSET.obj (.text:SetVcoreUp)
+                  00010a9a    00000046     rts430x_lc_rd_eabi.lib : fs_tou.asm.obj (.text)
+                  00010ae0    0000003c                            : strstr.c.obj (.text:strstr)
+                  00010b1c    00000028     TW_ESP8266.obj (.text:SendDataToESP)
+                  00010b44    00000024     rts430x_lc_rd_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init)
+                  00010b68    00000024                            : fs_utof.asm.obj (.text)
+                  00010b8c    00000020     TW_ESP8266.obj (.text:ClrEspBuff)
+                  00010bac    00000018     TW_GenericUART_UCA3.obj (.text:SendDataToUCA3)
+                  00010bc4    00000014     rts430x_lc_rd_eabi.lib : memcpy.c.obj (.text:memcpy)
+                  00010bd8    00000012                            : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  00010bea    0000000c     TW_GenericUART_UCA3.obj (.text:SendCharToUCA3)
+                  00010bf6    00000006     rts430x_lc_rd_eabi.lib : exit.c.obj (.text:abort)
+                  00010bfc    00000004                            : pre_init.c.obj (.text:_system_pre_init)
+                  00010c00    00000002                            : startup.c.obj (.text:_system_post_cinit)
 
 MODULE SUMMARY
 
        Module                       code   ro data   rw data
        ------                       ----   -------   -------
     .\
-       main.obj                     1020   464       4      
+       main.obj                     1048   462       4      
        TW_MSP430x5xx_CLOCKSET.obj   174    0         0      
     +--+----------------------------+------+---------+---------+
-       Total:                       1194   464       4      
+       Total:                       1222   462       4      
                                                             
     .\ADC12\
        TW_ADC12.obj                 16     2         6      
@@ -304,19 +304,19 @@ MODULE SUMMARY
        Stack:                       0      0         160    
        Linker Generated:            0      42        0      
     +--+----------------------------+------+---------+---------+
-       Grand Total:                 3400   552       2760   
+       Grand Total:                 3428   550       2760   
 
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 00005f4c records: 2, size/record: 8, table size: 16
-	.data: load addr=00005f3e, load size=00000008 bytes, run addr=00002600, run size=00000028 bytes, compression=lzss
-	.bss: load addr=00005f46, load size=00000006 bytes, run addr=00001c00, run size=00000a00 bytes, compression=zero_init
+__TI_cinit_table @ 00005f4a records: 2, size/record: 8, table size: 16
+	.data: load addr=00005f3c, load size=00000008 bytes, run addr=00002600, run size=00000028 bytes, compression=lzss
+	.bss: load addr=00005f44, load size=00000006 bytes, run addr=00001c00, run size=00000a00 bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 00005f32 records: 3, size/record: 4, table size: 12
+__TI_handler_table @ 00005f30 records: 3, size/record: 4, table size: 12
 	index: 0, handler: __TI_zero_init
 	index: 1, handler: __TI_decompress_lzss
 	index: 2, handler: __TI_decompress_none
@@ -409,7 +409,7 @@ address   name
 00000732  ADC12MEM9                              
 00000733  ADC12MEM9_H                            
 00000732  ADC12MEM9_L                            
-00010bda  C$$EXIT                                
+00010bf6  C$$EXIT                                
 00000150  CRCDI                                  
 00000152  CRCDIRB                                
 00000153  CRCDIRB_H                              
@@ -422,9 +422,9 @@ address   name
 00000156  CRCRESR                                
 00000157  CRCRESR_H                              
 00000156  CRCRESR_L                              
-00010b70  ClrEspBuff                             
-0001052e  ConfigureEspUART                       
-00010642  Configure_UCA3_UART                    
+00010b8c  ClrEspBuff                             
+0001054a  ConfigureEspUART                       
+0001065e  Configure_UCA3_UART                    
 00000510  DMA0CTL                                
 00000516  DMA0DA                                 
 00000518  DMA0DAH                                
@@ -775,11 +775,11 @@ address   name
 0000019a  SYSUNIV                                
 0000019b  SYSUNIV_H                              
 0000019a  SYSUNIV_L                              
-00010bce  SendCharToUCA3                         
-00010b00  SendDataToESP                          
-00010b90  SendDataToUCA3                         
-0001097c  SetClockDCO                            
-00010a30  SetVcoreUp                             
+00010bea  SendCharToUCA3                         
+00010b1c  SendDataToESP                          
+00010bac  SendDataToUCA3                         
+00010998  SetClockDCO                            
+00010a4c  SetVcoreUp                             
 00000352  TA0CCR0                                
 00000354  TA0CCR1                                
 00000356  TA0CCR2                                
@@ -1011,14 +1011,14 @@ address   name
 00002624  _UCA3BuffCnt                           
 00005c00  __STACK_END                            
 000000a0  __STACK_SIZE                           
-00005f4c  __TI_CINIT_Base                        
-00005f5c  __TI_CINIT_Limit                       
-00005f32  __TI_Handler_Table_Base                
-00005f3e  __TI_Handler_Table_Limit               
+00005f4a  __TI_CINIT_Base                        
+00005f5a  __TI_CINIT_Limit                       
+00005f30  __TI_Handler_Table_Base                
+00005f3c  __TI_Handler_Table_Limit               
 00005d5a  __TI_ISR_TRAP                          
-000109dc  __TI_auto_init_nobinit_nopinit_hold_wdt
-0001089e  __TI_decompress_lzss                   
-00010bbc  __TI_decompress_none                   
+000109f8  __TI_auto_init_nobinit_nopinit_hold_wdt
+000108ba  __TI_decompress_lzss                   
+00010bd8  __TI_decompress_none                   
 0000ffd2  __TI_int41                             
 0000ffd4  __TI_int42                             
 0000ffd6  __TI_int43                             
@@ -1044,25 +1044,25 @@ address   name
 ffffffff  __TI_pprof_out_hndl                    
 ffffffff  __TI_prof_data_size                    
 ffffffff  __TI_prof_data_start                   
-00010b28  __TI_zero_init                         
+00010b44  __TI_zero_init                         
 ffffffff  __c_args__                             
-00010402  __mspabi_addf                          
-0001080e  __mspabi_divf                          
-00010914  __mspabi_fixfi                         
-00010a7e  __mspabi_fixfu                         
-00010b4c  __mspabi_fltuf                         
-00010756  __mspabi_mpyf                          
-000103fc  __mspabi_subf                          
+0001041e  __mspabi_addf                          
+0001082a  __mspabi_divf                          
+00010930  __mspabi_fixfi                         
+00010a9a  __mspabi_fixfu                         
+00010b68  __mspabi_fltuf                         
+00010772  __mspabi_mpyf                          
+00010418  __mspabi_subf                          
 00005d2e  _c_int00_noargs                        
 0000fffe  _reset_vector                          
 00005b60  _stack                                 
-00010be4  _system_post_cinit                     
-00010be0  _system_pre_init                       
-00010bda  abort                                  
+00010c00  _system_post_cinit                     
+00010bfc  _system_pre_init                       
+00010bf6  abort                                  
 00010000  main                                   
-00010ba8  memcpy                                 
+00010bc4  memcpy                                 
 0000261e  res                                    
-00010ac4  strstr                                 
+00010ae0  strstr                                 
 00002618  temperatureDegC                        
 
 
@@ -1751,10 +1751,10 @@ address   name
 00005d2e  _c_int00_noargs                        
 00005d4a  ADC12ISR                               
 00005d5a  __TI_ISR_TRAP                          
-00005f32  __TI_Handler_Table_Base                
-00005f3e  __TI_Handler_Table_Limit               
-00005f4c  __TI_CINIT_Base                        
-00005f5c  __TI_CINIT_Limit                       
+00005f30  __TI_Handler_Table_Base                
+00005f3c  __TI_Handler_Table_Limit               
+00005f4a  __TI_CINIT_Base                        
+00005f5a  __TI_CINIT_Limit                       
 0000ffd2  __TI_int41                             
 0000ffd4  __TI_int42                             
 0000ffd6  __TI_int43                             
@@ -1779,31 +1779,31 @@ address   name
 0000fffc  __TI_int62                             
 0000fffe  _reset_vector                          
 00010000  main                                   
-000103fc  __mspabi_subf                          
-00010402  __mspabi_addf                          
-0001052e  ConfigureEspUART                       
-00010642  Configure_UCA3_UART                    
-00010756  __mspabi_mpyf                          
-0001080e  __mspabi_divf                          
-0001089e  __TI_decompress_lzss                   
-00010914  __mspabi_fixfi                         
-0001097c  SetClockDCO                            
-000109dc  __TI_auto_init_nobinit_nopinit_hold_wdt
-00010a30  SetVcoreUp                             
-00010a7e  __mspabi_fixfu                         
-00010ac4  strstr                                 
-00010b00  SendDataToESP                          
-00010b28  __TI_zero_init                         
-00010b4c  __mspabi_fltuf                         
-00010b70  ClrEspBuff                             
-00010b90  SendDataToUCA3                         
-00010ba8  memcpy                                 
-00010bbc  __TI_decompress_none                   
-00010bce  SendCharToUCA3                         
-00010bda  C$$EXIT                                
-00010bda  abort                                  
-00010be0  _system_pre_init                       
-00010be4  _system_post_cinit                     
+00010418  __mspabi_subf                          
+0001041e  __mspabi_addf                          
+0001054a  ConfigureEspUART                       
+0001065e  Configure_UCA3_UART                    
+00010772  __mspabi_mpyf                          
+0001082a  __mspabi_divf                          
+000108ba  __TI_decompress_lzss                   
+00010930  __mspabi_fixfi                         
+00010998  SetClockDCO                            
+000109f8  __TI_auto_init_nobinit_nopinit_hold_wdt
+00010a4c  SetVcoreUp                             
+00010a9a  __mspabi_fixfu                         
+00010ae0  strstr                                 
+00010b1c  SendDataToESP                          
+00010b44  __TI_zero_init                         
+00010b68  __mspabi_fltuf                         
+00010b8c  ClrEspBuff                             
+00010bac  SendDataToUCA3                         
+00010bc4  memcpy                                 
+00010bd8  __TI_decompress_none                   
+00010bea  SendCharToUCA3                         
+00010bf6  C$$EXIT                                
+00010bf6  abort                                  
+00010bfc  _system_pre_init                       
+00010c00  _system_post_cinit                     
 ffffffff  __TI_pprof_out_hndl                    
 ffffffff  __TI_prof_data_size                    
 ffffffff  __TI_prof_data_start                   

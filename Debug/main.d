@@ -1,7 +1,7 @@
 # FIXED
 
 main.obj: ../main.c
-main.obj: C:/Users/Turjasu/OneDrive//\ -//\ TURJASUZWORLD/Projects/OnGoing/BranonWrkSpc/BRANONFW_00_00_03_00/ESP8266_TW/TW_ESP8266.h
+main.obj: C:/Users/Turjasu/OneDrive\ -\ TURJASUZWORLD/Projects/OnGoing/BranonWrkSpc/BRANONFW_00_00_03_00/ESP8266_TW/TW_ESP8266.h
 main.obj: C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/stdint.h
 main.obj: C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/_stdint40.h
 main.obj: C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/sys/stdint.h
@@ -23,7 +23,7 @@ main.obj: C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/link
 main.obj: C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/stdbool.h
 
 ../main.c: 
-C:/Users/Turjasu/OneDrive//\ -//\ TURJASUZWORLD/Projects/OnGoing/BranonWrkSpc/BRANONFW_00_00_03_00/ESP8266_TW/TW_ESP8266.h: 
+C:/Users/Turjasu/OneDrive\ -\ TURJASUZWORLD/Projects/OnGoing/BranonWrkSpc/BRANONFW_00_00_03_00/ESP8266_TW/TW_ESP8266.h: 
 C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/stdint.h: 
 C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/_stdint40.h: 
 C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.3.LTS/include/sys/stdint.h: 
